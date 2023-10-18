@@ -24,7 +24,9 @@ public class DeleteBookFromList extends TestBase{
         booksApi.deleteOneBook(loginResponse, deleteBook);
 
         UserPage.userProfileCookies(loginResponse.getUserId(), loginResponse.getToken(), loginResponse.getExpires());
+        UserPage.checkDisappearBook("see-book-Understanding ECMAScript 6");
     }
+
 
 }
 

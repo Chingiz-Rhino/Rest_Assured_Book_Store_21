@@ -1,10 +1,7 @@
 package qa.quru.api;
 
 import io.qameta.allure.Step;
-import qa.quru.models.AddBookToListModel;
-import qa.quru.models.DeleteBookModel;
-import qa.quru.models.IsbnModel;
-import qa.quru.models.LoginResponseModel;
+import qa.quru.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +31,7 @@ public class BooksAPI {
                 .when()
                 .post("/BookStore/v1/Books")
                 .then()
-                .spec(bookSuccessAddResponseSpec)
-                .extract().as(AddBookToListModel.class);
+                .spec(bookSuccessAddResponseSpec);
     }
 
 
@@ -48,7 +44,8 @@ public class BooksAPI {
                 .when()
                 .delete("/BookStore/v1/Book")
                 .then()
-                .spec(bookSuccessDeleteResponseSpec);
+                .spec(bookSuccessDeleteResponseSpec)
+                .statusCode(204);
     }
 
     public IsbnModel createIsbnModel(String isbn) {
@@ -61,7 +58,7 @@ public class BooksAPI {
     public AddBookToListModel createAddBookToListModel(LoginResponseModel loginResponse, IsbnModel isbnModel) {
         AddBookToListModel bookList = new AddBookToListModel();
         bookList.setUserId(loginResponse.getUserId());
-        List<IsbnModel> isbnList = new ArrayList<IsbnModel>();
+        List<IsbnModel> isbnList = new ArrayList<>();
         isbnList.add(isbnModel);
         bookList.setCollectionsOfIsbn(isbnList);
         return bookList;
