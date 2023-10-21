@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class DeleteBookModel {
-        String userId;
-        String isbn;
+    private String userId;
+    private String isbn;
 }

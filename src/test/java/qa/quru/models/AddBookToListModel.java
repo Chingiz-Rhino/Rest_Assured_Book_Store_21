@@ -6,6 +6,6 @@ import java.util.List;
 
 @Data
 public class AddBookToListModel {
-    String userId;
+    private String userId;
     List<IsbnModel> collectionsOfIsbn;
 }

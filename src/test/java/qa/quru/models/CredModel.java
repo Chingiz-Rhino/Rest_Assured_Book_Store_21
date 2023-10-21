@@ -6,6 +6,6 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CredModel {
-    String userName;
-    String password;
+    private String userName;
+    private String password;
 }

@@ -3,7 +3,6 @@ package qa.quru.spec;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.openqa.selenium.devtools.v113.network.model.Response;
 import qa.quru.tests.TestBase;
 
 import static io.restassured.RestAssured.baseURI;
